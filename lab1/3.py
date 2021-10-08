@@ -4,10 +4,17 @@
 # wiek użytkownika,
 # a następnie zwróci jego rok urodzenia.
 
-def foo(pierwszeCyfry: str, ostatnieCyfry: str, wiek: int):
+def fooString(pierwszeCyfry: str, ostatnieCyfry: str, wiek: str):
     aktualnyRok = pierwszeCyfry + ostatnieCyfry
     aktualnyRok = int(aktualnyRok)
+    wiek = int(wiek)
     return aktualnyRok - wiek
 
 
-print(foo("20", "21", 23))
+def fooInt(pierwszeCyfry: int, ostatnieCyfry: int, wiek: int):
+    aktualnyRok = str(pierwszeCyfry) + str(ostatnieCyfry)
+    return int(aktualnyRok) - wiek
+
+
+print(fooString("20", "21", "23"))
+print(fooInt(20, 21, 25))

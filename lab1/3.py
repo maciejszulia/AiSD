@@ -5,8 +5,7 @@
 # a następnie zwróci jego rok urodzenia.
 
 def fooString(pierwszeCyfry: str, ostatnieCyfry: str, wiek: str):
-    aktualnyRok = pierwszeCyfry + ostatnieCyfry
-    aktualnyRok = int(aktualnyRok)
+    aktualnyRok = int(pierwszeCyfry + ostatnieCyfry)
     wiek = int(wiek)
     return aktualnyRok - wiek
 

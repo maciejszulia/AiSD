@@ -5,16 +5,11 @@
 # wyjście: J. Kowalski.
 
 def funkcja_z_zadania_2(imie: str, nazwisko: str):
-    imie = imie.capitalize()
-    nazwisko = nazwisko.capitalize()
-    return imie[0] + ". " + nazwisko
+    return f"{imie[0].capitalize()}. {nazwisko.capitalize()}"
 
 
 def foo(imie: str, nazwisko: str, funkcja):
-    if funkcja == "funkcja_z_zadania_2":
-        return funkcja_z_zadania_2(imie, nazwisko)
-
-    # nie wiem.....
+    return funkcja(imie, nazwisko)
 
 
 print(foo("jan", "kowalski", funkcja_z_zadania_2))

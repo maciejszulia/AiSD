@@ -4,9 +4,7 @@
 # Przykładowo, wejście: (jan, kowalski), wyjście: J. Kowalski.
 
 def foo(imie: str, nazwisko: str):
-    imie = imie.capitalize()
-    nazwisko = nazwisko.capitalize()
-    return imie[0] + ". " + nazwisko
+    return f"{imie[0].capitalize()}. {nazwisko.capitalize()}"
 
 
 print(foo("jan", "kowalski"))

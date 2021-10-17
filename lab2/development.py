@@ -29,9 +29,9 @@ class LinkedList:
                 ogon = None
         """
 
-    def __repr__(self):                 # jaaaaaaaaaaaaaa pierdoleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+    def __repr__(self):  # jaaaaaaaaaaaaaa pierdoleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
         output = ""
-        this_node = self.head           # head to wzkaznik na pierwszy wezel, nie posiada wartosci(value)
+        this_node = self.head  # head to wzkaznik na pierwszy wezel, nie posiada wartosci(value)
         while this_node is not None:
             output += str(this_node.value)
             this_node = this_node.next_Node
@@ -61,15 +61,11 @@ class LinkedList:
         """
 
     def append(self, value: Any) -> None:
-        this_node = Node(value)
-        this_node.next_Node = None
-        if self.head == None:
-            self.head = this_node
-            self.tail = this_node
-        else:
-            self.tail.next_Node = this_node
-            self.tail = this_node
-
+        new_node = Node(value)
+        current_node = self.head
+        while current_node.next_Node is not None:
+            current_node = current_node.next_Node
+        current_node = new_node
 
 list_ = LinkedList()
 assert list_.head is None  # ok

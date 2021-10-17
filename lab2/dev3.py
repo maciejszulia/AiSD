@@ -1,5 +1,6 @@
 from typing import Any
 
+RED_TEXT = '\033[91m'
 
 class Node:
     def __init__(self, value: Any):
@@ -50,6 +51,7 @@ class LinkedList:
 
     def print(self):
         print(str(self.__repr__()))
+        # str() just in order to not to catch any bugs
 
     def push(self, value: Any) -> None:
         this_node = Node(value)
@@ -70,7 +72,7 @@ class LinkedList:
     #         self.head = this_node
     #         self.tail = this_node
 
-    def node(self, at: int):
+    def node(self, at: int):    # szok, że wyszło mi to za pierwszym razem
         this_node = self.head
         node_number = 0
         while this_node is not None:
@@ -78,8 +80,8 @@ class LinkedList:
                 return this_node.value
             this_node = this_node.next
             node_number += 1
+        return RED_TEXT + 'error: outOfRange; check __at__ parameter'
 
-        # szok
 
 
 list_ = LinkedList()
@@ -96,4 +98,4 @@ assert str(list_) == '0 -> 1'
 
 # list_.append(9)
 LinkedList.print(self=list_)
-print(LinkedList.node(self=list_, at=1))
+print(LinkedList.node(self=list_, at=2))

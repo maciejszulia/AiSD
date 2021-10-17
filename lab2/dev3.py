@@ -40,7 +40,7 @@ class LinkedList:
     """ __reprezentacja__(LinkedList)
         output = ""     "" - string
         glowa listy wskazuje na ten_node
-        while this_node nie jest None (pusty):
+        while this_node nie jest None (pusty):  ten while literuje węzły
             dodaj do output this_node.value
             jeżeli wskaźnik do następnego node nie jest None:
                 do output dodaj " -> "
@@ -49,6 +49,9 @@ class LinkedList:
         return output
     """
 
+    def print(self):
+        print(str(self.__repr__()))
+
     def push(self, value: Any) -> None:
         this_node = Node(value)
         this_node.next = self.head
@@ -56,8 +59,20 @@ class LinkedList:
         if self.tail is None:
             self.tail = this_node
 
-    def print(self):
-        print(str(self.__repr__()))
+    """
+    def push(LinkedList, value):
+        ten_node = Node(value)
+        głowa = ten_node.nastepny
+    """
+
+    def append(self, value: Any) -> None:
+        this_node = Node(value)
+        this_node.next = self.tail
+        self.tail = this_node
+        if self.head is None:
+            self.head = this_node
+
+
 
 
 list_ = LinkedList()
@@ -71,4 +86,6 @@ list_.push(0)
 # list_.push(3)
 
 assert str(list_) == '0 -> 1'
+
+list_.append(9)
 LinkedList.print(self=list_)

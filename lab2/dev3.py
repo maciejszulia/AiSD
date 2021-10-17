@@ -6,11 +6,26 @@ class Node:
         self.value = value
         self.next = None  # domyslnie tail
 
+    """
+    klasa Node:
+        zkonstruuj obiekt Node:
+            wartość = value
+            następny_węzeł = None
+    """
+
+
 
 class LinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
+
+    """
+    klasa ListaPołączona:
+        zkonstruuj obiekt LinkedList:
+            głowa = None
+            ogon = None
+    """
 
     def __repr__(self):
         output = ""
@@ -21,6 +36,18 @@ class LinkedList:
                 output += " -> "
             this_node = this_node.next
         return output
+
+    """ __reprezentacja__(LinkedList)
+        output = ""     "" - string
+        glowa listy wskazuje na ten_node
+        while this_node nie jest None (pusty):
+            dodaj do output this_node.value
+            jeżeli wskaźnik do następnego node nie jest None:
+                do output dodaj " -> "
+             ten_node to teraz next node
+             ((skok do początku while))
+        return output
+    """
 
     def push(self, value: Any) -> None:
         this_node = Node(value)
@@ -34,10 +61,14 @@ class LinkedList:
 
 
 list_ = LinkedList()
-assert list_.head == None
+assert list_.head is None
+print("ok")
 
 list_.push(1)
 list_.push(0)
+# list_.push(2)
+# list_.push(2)
+# list_.push(3)
 
-#assert str(list_) == '0 -> 1'
+assert str(list_) == '0 -> 1'
 LinkedList.print(self=list_)

@@ -14,7 +14,6 @@ class Node:
     """
 
 
-
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -65,15 +64,22 @@ class LinkedList:
         głowa = ten_node.nastepny
     """
 
-    def append(self, value: Any) -> None:
-        this_node = Node(value)
-        this_node.next = self.tail
-        self.tail = this_node
-        if self.head is None:
-            self.head = this_node
+    # def append(self, value: Any) -> None:
+    #     this_node = Node(value)
+    #     if self.head is None:
+    #         self.head = this_node
+    #         self.tail = this_node
 
+    def node(self, at: int):
+        this_node = self.head
+        node_number = 0
+        while this_node is not None:
+            if at is node_number:
+                return this_node.value
+            this_node = this_node.next
+            node_number += 1
 
-
+        #szok
 
 list_ = LinkedList()
 assert list_.head is None
@@ -87,5 +93,6 @@ list_.push(0)
 
 assert str(list_) == '0 -> 1'
 
-list_.append(9)
+# list_.append(9)
 LinkedList.print(self=list_)
+print(LinkedList.node(self=list_, at=1))

@@ -79,7 +79,8 @@ class LinkedList:
             this_node = this_node.next
             node_number += 1
 
-        #szok
+        # szok
+
 
 list_ = LinkedList()
 assert list_.head is None

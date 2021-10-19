@@ -55,10 +55,6 @@ class LinkedList:
                 counter += 1
 
     def insert(self, value: Any, after: Node) -> None:
-        # if after is self.tail:
-        #     new_node = Node
-        #     new_node.value = value
-        #     self.tail = new_node
         current_node = self.head
         temp_node = Node
         while current_node is not None:
@@ -73,15 +69,22 @@ class LinkedList:
                 current_node.next_node = temp_node
             current_node = current_node.next_node
 
-
+    def remove(self, after: Node) -> Any:
+        if after.next_node is None:
+            return
+        if after.next_node.next_node is not None:
+            after.next_node = after.next_node.next_node
+        else:
+            after.next_node = None
+            self.tail = after
 
 list_ = LinkedList()
 assert list_.head is None
 list_.append(2)
 list_.append(3)
 list_.push(1)
-middle_node = list_.get_node(at=2)
-list_.insert(5, after=middle_node)
+middle_node = list_.get_node(at=1)
+list_.remove(after=middle_node)
 # assert str(list_) == '9 -> 10'
 list_.print()
 print(list_.get_node(1))

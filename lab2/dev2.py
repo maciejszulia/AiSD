@@ -55,16 +55,22 @@ class LinkedList:
                 counter += 1
 
     def insert(self, value: Any, after: Node) -> None:
+        # if after is self.tail:
+        #     new_node = Node
+        #     new_node.value = value
+        #     self.tail = new_node
         current_node = self.head
         temp_node = Node
         while current_node is not None:
             if current_node is after:
+                if current_node.next_node is None:
+                    self.append(value)
+                    break
                 current_node = current_node.next_node
                 temp_node.value = current_node.value
                 temp_node.next_node = current_node.next_node
                 current_node.value = value
                 current_node.next_node = temp_node
-                break
             current_node = current_node.next_node
 
 

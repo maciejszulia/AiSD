@@ -25,24 +25,57 @@ class LinkedList:
     def print(self):
         print(str(self.__repr__()))
 
+    def push(self, value: Any) -> None:
+        new_node = Node(value)
+        new_node.next_node = self.head
+        self.head = new_node
+
     def append(self, value: Any) -> None:
         new_node = Node(value)
         if self.head is None:
             self.head = new_node
             return
         current_node = self.head
-        while True:
+        while current_node is not None:  # while True is now while current_node is not None
             if current_node.next_node is None:
                 current_node.next_node = new_node
                 break
             current_node = current_node.next_node
 
-    def push(self, value: Any) -> None:
-        new_node = Node(value)
+    def get_node(self, at: int) -> Node:
+        if at == 0:
+            return self.head
+        counter = 0
+        current_node = self.head
+        while current_node is not None:
+            if counter == at:
+                return current_node
+            else:
+                current_node = current_node.next_node
+                counter += 1
+
+    def insert(self, value: Any, after: Node) -> None:
+        current_node = self.head
+        temp_node = Node
+        while current_node is not None:
+            if current_node is after:
+                current_node = current_node.next_node
+                temp_node.value = current_node.value
+                temp_node.next_node = current_node.next_node
+                current_node.value = value
+                current_node.next_node = temp_node
+                break
+            current_node = current_node.next_node
+
 
 
 list_ = LinkedList()
 assert list_.head is None
-list_.append(9)
-list_.append(10)
-assert str(list_) == '9 -> 10'
+list_.append(2)
+list_.append(3)
+list_.push(1)
+middle_node = list_.get_node(at=2)
+list_.insert(5, after=middle_node)
+# assert str(list_) == '9 -> 10'
+list_.print()
+print(list_.get_node(1))

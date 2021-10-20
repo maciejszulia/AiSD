@@ -12,7 +12,7 @@ class LinkedList:
         self.head = head
         self.tail = tail
 
-    def __repr__(self):
+    def __str__(self):
         output = ""
         current_node = self.head
         while current_node is not None:
@@ -20,13 +20,18 @@ class LinkedList:
             if current_node.next_node is not None:
                 output += " -> "
             current_node = current_node.next_node
-        return output
-
-    def __str__(self):
-        return str(self.__repr__())
+        return str(output)
 
     def print(self):
-        print(str(self.__repr__()))
+        return self.__str__()
+
+    def len(self):
+        length = 0
+        current_node = self.head
+        while current_node:
+            length += 1
+            current_node = current_node.next_node
+        return length
 
     def push(self, value: Any) -> None:
         new_node = Node(value)
@@ -72,6 +77,25 @@ class LinkedList:
                 current_node.next_node = temp_node
             current_node = current_node.next_node
 
+    def pop(self) -> Any:  # funckja zwraca typ any więc przy returnie jest popped_node.value
+        if self.head is None:
+            return None
+        popped_node = self.head
+        self.head = self.head.next_node
+        popped_node.next_node = None
+        return popped_node.value
+
+    def remove_last(self) -> Any:
+        if self.head is None:
+            return None
+        current_node = self.head
+        while current_node is not None:
+            if current_node.next_node.next_node is self.tail:
+                removed = current_node.next_node.value
+                current_node.next_node = self.tail
+                return removed
+            current_node = current_node.next_node
+
     def remove(self, after: Node) -> Any:
         if after.next_node is None:
             return
@@ -84,11 +108,37 @@ class LinkedList:
 
 list_ = LinkedList()
 assert list_.head is None
-list_.append(2)
-list_.append(3)
 list_.push(1)
+list_.push(0)
+
+assert str(list_) == '0 -> 1'
+
+list_.append(9)
+list_.append(10)
+
+assert str(list_) == '0 -> 1 -> 9 -> 10'
+
 middle_node = list_.get_node(at=1)
-list_.remove(after=middle_node)
-# assert str(list_) == '9 -> 10'
+list_.insert(5, after=middle_node)
+
+assert str(list_) == '0 -> 1 -> 5 -> 9 -> 10'
+
+first_element = list_.get_node(at=0)
+returned_first_element = list_.pop()
+
+assert first_element.value == returned_first_element
 list_.print()
-print(list_.get_node(1))
+
+last_element = list_.get_node(at=3)
+returned_last_element = list_.remove_last()
+
+assert last_element.value == returned_last_element
+assert str(list_) == '1 -> 5 -> 9'
+list_.print()
+
+second_node = list_.get_node(at=1)
+list_.remove(second_node)
+
+assert str(list_) == '1 -> 5'
+
+print(list_.len())

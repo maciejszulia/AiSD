@@ -2,12 +2,18 @@ from typing import Any
 
 
 class Node:
+    value: Any
+    next_node: 'Node'
+
     def __init__(self, value: Any, next_node=None):
         self.value = value
         self.next_node = next_node
 
 
 class LinkedList:
+    head: Node
+    tail: Node
+
     def __init__(self, head=None, tail=None):
         self.head = head
         self.tail = tail
@@ -22,7 +28,7 @@ class LinkedList:
             current_node = current_node.next_node
         return str(output)
 
-    def print(self):
+    def print(self):  # can be removed
         return self.__str__()
 
     def len(self):
@@ -108,37 +114,29 @@ class LinkedList:
 
 list_ = LinkedList()
 assert list_.head is None
+
 list_.push(1)
 list_.push(0)
-
 assert str(list_) == '0 -> 1'
 
 list_.append(9)
 list_.append(10)
-
 assert str(list_) == '0 -> 1 -> 9 -> 10'
 
 middle_node = list_.get_node(at=1)
 list_.insert(5, after=middle_node)
-
 assert str(list_) == '0 -> 1 -> 5 -> 9 -> 10'
 
 first_element = list_.get_node(at=0)
 returned_first_element = list_.pop()
-
 assert first_element.value == returned_first_element
-list_.print()
 
 last_element = list_.get_node(at=3)
 returned_last_element = list_.remove_last()
-
 assert last_element.value == returned_last_element
+
 assert str(list_) == '1 -> 5 -> 9'
-list_.print()
 
 second_node = list_.get_node(at=1)
 list_.remove(second_node)
-
 assert str(list_) == '1 -> 5'
-
-print(list_.len())

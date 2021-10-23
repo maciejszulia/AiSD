@@ -43,7 +43,7 @@ class LinkedList:
         new_node.next_node = self.head
         self.head = new_node
 
-    def append(self, value: Any) -> None:
+    def append(self, value: Any) -> None:  # todo#1: da sie to zrobic ładniej ALE NIE MAM NA TO CZASU!!!!!!!!!
         new_node = Node(value)
         if self.head is None:
             self.head = new_node
@@ -55,7 +55,7 @@ class LinkedList:
                 break
             current_node = current_node.next_node
 
-    def get_node(self, at: int) -> Node:
+    def get_node(self, at: int) -> Node:  # todo#1
         if at == 0:
             return self.head
         counter = 0
@@ -67,7 +67,7 @@ class LinkedList:
                 current_node = current_node.next_node
                 counter += 1
 
-    def insert(self, value: Any, after: Node) -> None:
+    def insert(self, value: Any, after: Node) -> None:  # todo#1
         current_node = self.head
         temp_node = Node
         while current_node is not None:
@@ -90,7 +90,7 @@ class LinkedList:
         popped_node.next_node = None
         return popped_node.value
 
-    def remove_last(self) -> Any:
+    def remove_last(self) -> Any:   # todo#1
         if self.head is None:
             return None
         current_node = self.head
@@ -125,12 +125,10 @@ list_.append(10)
 assert str(list_) == '0 -> 1 -> 9 -> 10'
 print(str(list_))
 
-
 middle_node = list_.get_node(at=1)
 list_.insert(5, after=middle_node)
 assert str(list_) == '0 -> 1 -> 5 -> 9 -> 10'
 print(str(list_))
-
 
 first_element = list_.get_node(at=0)
 returned_first_element = list_.pop()
@@ -143,9 +141,7 @@ assert last_element.value == returned_last_element
 assert str(list_) == '1 -> 5 -> 9'
 print(str(list_))
 
-
 second_node = list_.get_node(at=1)
 list_.remove(second_node)
 assert str(list_) == '1 -> 5'
 print(str(list_))
-

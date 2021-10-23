@@ -33,7 +33,7 @@ class LinkedList:
     def __len__(self):
         length = 0
         current_node = self.head
-        while current_node:
+        while current_node is not None:
             length += 1
             current_node = current_node.next_node
         return length

@@ -1,5 +1,5 @@
 from typing import Any
-from LinkedList import LinkedList
+from LinkedList import LinkedList, Node
 
 
 class Stack:
@@ -7,15 +7,37 @@ class Stack:
 
     def __init__(self):
         self._storage = LinkedList()
-        self.head = None
 
-    def isempty(self):
-        if self.head is None:
-            return True
-        else:
-            return False
+    def __len__(self):
+        return self._storage.__len__()
+
+    def __repr__(self):
+        output = []
+        node = self._storage.head
+        while node is not None:
+            output.insert(0, node.value)
+            node = node.next_node
+        output = map(str, output)
+        output_ = "\n".join(output)
+        return output_
 
     def push(self, element: Any) -> None:
-        self.append(element)
+        self._storage.append(element)
 
-Stack.push(1)
+    def pop(self) -> Any:
+        return self._storage.remove_last()
+
+# stack = Stack()
+# assert len(stack) == 0
+# print(f'stack = \n{stack}\ntest: ok')
+#
+# stack.push(3)
+# stack.push(10)
+# stack.push(1)
+# assert len(stack) == 3
+# print(f'stack = \n{stack}\ntest: ok')
+#
+# top_value = stack.pop()
+# assert top_value == 1
+# assert len(stack) == 2
+# print(f'stack = \n{stack}\ntest: ok')

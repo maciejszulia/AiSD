@@ -8,9 +8,6 @@ class Queue:
     def __init__(self):
         self._storage = LinkedList()
 
-    def __len__(self):
-        pass
-
     def __repr__(self):
         output = []
         node = self._storage.head
@@ -18,6 +15,9 @@ class Queue:
             output.append(node.value)
             node = node.next_node
         return output
+
+    def __len__(self):
+        return self._storage.__len__()
 
     def __str__(self):
         str_out = map(str, self.__repr__())
@@ -34,10 +34,20 @@ class Queue:
 
 
 queue = Queue()
-# assert len(queue) == 0
+assert len(queue) == 0
+print(f'queue = {queue}\ntest: ok')
 
 queue.enqueue('klient1')
 queue.enqueue('klient2')
 queue.enqueue('klient3')
-print(str(queue))
-# assert str(queue) == 'klient1, klient2, klient3'
+assert str(queue) == 'klient1, klient2, klient3'
+print(f'queue = {queue}\ntest: ok')
+
+client_first = queue.dequeue()
+assert client_first == 'klient1'
+print(f'client_first = {client_first}\ntest: ok')
+
+assert str(queue) == 'klient2, klient3'
+print(f'queue = {queue}\ntest: ok')
+assert len(queue) == 2
+print(f'queue_len = {len(queue)}\ntest: ok')

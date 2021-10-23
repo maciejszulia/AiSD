@@ -18,20 +18,19 @@ class LinkedList:
         self.head = head
         self.tail = tail
 
+    def __repr__(self):
+        output = []
+        node = self.head
+        while node is not None:
+            output.append(node.value)
+            node = node.next_node
+        return output
+
     def __str__(self):
-        output = ""
-        current_node = self.head
-        while current_node is not None:
-            output += str(current_node.value)
-            if current_node.next_node is not None:
-                output += " -> "
-            current_node = current_node.next_node
-        return str(output)
+        str_out = map(str, self.__repr__())
+        return " -> ".join(str_out)
 
-    def print(self):  # can be removed
-        return self.__str__()
-
-    def len(self):
+    def __len__(self):
         length = 0
         current_node = self.head
         while current_node:
@@ -114,18 +113,24 @@ class LinkedList:
 
 list_ = LinkedList()
 assert list_.head is None
+print(str(list_))
 
 list_.push(1)
 list_.push(0)
 assert str(list_) == '0 -> 1'
+print(str(list_))
 
 list_.append(9)
 list_.append(10)
 assert str(list_) == '0 -> 1 -> 9 -> 10'
+print(str(list_))
+
 
 middle_node = list_.get_node(at=1)
 list_.insert(5, after=middle_node)
 assert str(list_) == '0 -> 1 -> 5 -> 9 -> 10'
+print(str(list_))
+
 
 first_element = list_.get_node(at=0)
 returned_first_element = list_.pop()
@@ -136,7 +141,11 @@ returned_last_element = list_.remove_last()
 assert last_element.value == returned_last_element
 
 assert str(list_) == '1 -> 5 -> 9'
+print(str(list_))
+
 
 second_node = list_.get_node(at=1)
 list_.remove(second_node)
 assert str(list_) == '1 -> 5'
+print(str(list_))
+

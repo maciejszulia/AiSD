@@ -111,37 +111,37 @@ class LinkedList:
             self.tail = after
 
 
-list_ = LinkedList()
-assert list_.head is None
-print(str(list_))
-
-list_.push(1)
-list_.push(0)
-assert str(list_) == '0 -> 1'
-print(str(list_))
-
-list_.append(9)
-list_.append(10)
-assert str(list_) == '0 -> 1 -> 9 -> 10'
-print(str(list_))
-
-middle_node = list_.get_node(at=1)
-list_.insert(5, after=middle_node)
-assert str(list_) == '0 -> 1 -> 5 -> 9 -> 10'
-print(str(list_))
-
-first_element = list_.get_node(at=0)
-returned_first_element = list_.pop()
-assert first_element.value == returned_first_element
-
-last_element = list_.get_node(at=3)
-returned_last_element = list_.remove_last()
-assert last_element.value == returned_last_element
-
-assert str(list_) == '1 -> 5 -> 9'
-print(str(list_))
-
-second_node = list_.get_node(at=1)
-list_.remove(second_node)
-assert str(list_) == '1 -> 5'
-print(str(list_))
+# list_ = LinkedList()
+# assert list_.head is None
+# print(str(list_))
+#
+# list_.push(1)
+# list_.push(0)
+# assert str(list_) == '0 -> 1'
+# print(str(list_))
+#
+# list_.append(9)
+# list_.append(10)
+# assert str(list_) == '0 -> 1 -> 9 -> 10'
+# print(str(list_))
+#
+# middle_node = list_.get_node(at=1)
+# list_.insert(5, after=middle_node)
+# assert str(list_) == '0 -> 1 -> 5 -> 9 -> 10'
+# print(str(list_))
+#
+# first_element = list_.get_node(at=0)
+# returned_first_element = list_.pop()
+# assert first_element.value == returned_first_element
+#
+# last_element = list_.get_node(at=3)
+# returned_last_element = list_.remove_last()
+# assert last_element.value == returned_last_element
+#
+# assert str(list_) == '1 -> 5 -> 9'
+# print(str(list_))
+#
+# second_node = list_.get_node(at=1)
+# list_.remove(second_node)
+# assert str(list_) == '1 -> 5'
+# print(str(list_))

@@ -1,4 +1,5 @@
-# Zaimplementować funkcję numbers(n: int), która wypisze liczby od n do 0
+# Zaimplementować funkcję numbers(n: int),
+# która wypisze liczby od n do 0
 def numbers(n: int):
     if n == 0:
         print(0)

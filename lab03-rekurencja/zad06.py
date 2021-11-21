@@ -10,7 +10,7 @@ def prime(n: int) -> bool:
         return True
     i = 3
     while i != n:
-        print(f'{n} % {i} == {n % i}')
+        # print(f'{n} % {i} == {n % i}')
         if n % i == 0:
             return False
         i += 1

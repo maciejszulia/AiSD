@@ -1,4 +1,5 @@
-# Zaimplementować funkcję fib(n: int) -> int, która obliczy n-ty wyraz ciągu Fibonacciego
+# Zaimplementować funkcję fib(n: int) -> int,
+# która obliczy n-ty wyraz ciągu Fibonacciego
 def fib(n: int) -> int:
     if n == 0 or n == 1:
         return n

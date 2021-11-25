@@ -20,10 +20,10 @@ class TreeNode:
     def add(self, child: 'TreeNode') -> None:
         self.children.append(child)
 
-    # def for_each_deep_first(self, visit: Callable[['TreeNode'], None]) -> None:
-    #     visit(self)
-    #     for i in self.children:
-    #         i.for_each_deep_first(visit)
+    def for_each_deep_first(self, visit: Callable[['TreeNode'], None]) -> None:
+        visit(self)  # to jest visit z parametru
+        for i in self.children:
+            i.for_each_deep_first(visit)
 
 
 class Tree:

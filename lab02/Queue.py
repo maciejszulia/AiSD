@@ -1,5 +1,5 @@
 from typing import Any
-from LinkedList import LinkedList, Node
+from lab02.LinkedList import LinkedList
 
 
 class Queue:

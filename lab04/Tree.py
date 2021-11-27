@@ -15,11 +15,10 @@ class Tree:
         pass
 
     def for_each_level_order(self, visit: Callable[['TreeNode'], None]) -> None:
-        pass
+        self.root.for_each_level_order(visit)
 
     def for_each_deep_first(self, visit: Callable[['TreeNode'], None]) -> None:
-        pass
+        self.root.for_each_deep_first(visit)
 
     def show(self):
         pass
-

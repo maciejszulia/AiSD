@@ -29,7 +29,7 @@ class Queue:
     def enqueue(self, element: Any) -> None:
         self._storage.append(element)
 
-    def dequeue(self) -> Any:  # return Node?
+    def dequeue(self) -> Any:
         return self._storage.pop()
 
 # queue = Queue()

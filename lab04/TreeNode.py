@@ -1,4 +1,5 @@
 from typing import Any, List, Callable, Union
+from lab02.Queue import Queue
 
 
 class TreeNode:
@@ -22,8 +23,11 @@ class TreeNode:
 
     def for_each_deep_first(self, visit: Callable[['TreeNode'], None]) -> None:
         visit(self)  # to jest visit z parametru
-        for i in self.children:
-            i.for_each_deep_first(visit)
+        for child in self.children:
+            child.for_each_deep_first(visit)
+
+    def for_each_level_order(self, visit: Callable[['TreeNode'], None]) -> None:
+        pass
 
 
 class Tree:

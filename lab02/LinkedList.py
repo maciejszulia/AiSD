@@ -67,20 +67,10 @@ class LinkedList:
                 current_node = current_node.next_node
                 counter += 1
 
-    def insert(self, value: Any, after: Node) -> None:  # todo#1
-        current_node = self.head
-        temp_node = Node
-        while current_node is not None:
-            if current_node is after:
-                if current_node.next_node is None:
-                    self.append(value)
-                    break
-                current_node = current_node.next_node
-                temp_node.value = current_node.value
-                temp_node.next_node = current_node.next_node
-                current_node.value = value
-                current_node.next_node = temp_node
-            current_node = current_node.next_node
+    def insert(self, value: Any, after: Node) -> None:
+        temp = Node(value)
+        temp.next = after.next
+        after.next = temp
 
     def pop(self) -> Any:  # funckja zwraca typ any więc przy returnie jest popped_node.value
         if self.head is None:
@@ -90,7 +80,7 @@ class LinkedList:
         popped_node.next_node = None
         return popped_node.value
 
-    def remove_last(self) -> Any:   # todo#1
+    def remove_last(self) -> Any:
         if self.head is None:
             return None
         current_node = self.head
@@ -109,7 +99,6 @@ class LinkedList:
         else:
             after.next_node = None
             self.tail = after
-
 
 # list_ = LinkedList()
 # assert list_.head is None

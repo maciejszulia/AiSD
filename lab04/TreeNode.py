@@ -55,7 +55,7 @@ class TreeNode:
         if output:
             return output[0]
         else:
-            return None
+            pass
 
 
 tree: 'TreeNode' = TreeNode(2)

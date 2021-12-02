@@ -58,13 +58,13 @@ class TreeNode:
             pass
 
 
-tree: 'TreeNode' = TreeNode(2)
-assert tree.value == 2
-tree.add(TreeNode(1))
-assert tree.children[0].value == 1
-tree.add(TreeNode(4))
-assert tree.children[1].value == 4
-tree.children[0].add(TreeNode(3))
-assert tree.children[0].children[0].value == 3
-tree.children[1].add(TreeNode(6))
-assert tree.children[1].children[0].value == 6
+# tree: 'TreeNode' = TreeNode(2)
+# assert tree.value == 2
+# tree.add(TreeNode(1))
+# assert tree.children[0].value == 1
+# tree.add(TreeNode(4))
+# assert tree.children[1].value == 4
+# tree.children[0].add(TreeNode(3))
+# assert tree.children[0].children[0].value == 3
+# tree.children[1].add(TreeNode(6))
+# assert tree.children[1].children[0].value == 6

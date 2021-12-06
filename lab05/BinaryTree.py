@@ -19,24 +19,3 @@ class BinaryTree:
 
     def show(self):
         self.root.show(0)
-
-    def traverse_left_line(self) -> list[BinaryNode]:
-        output = []
-
-        def append_node(node):
-            return output.append(node)
-
-        append_node(self.root)
-        if self.root.left_child is not None:
-            self.traverse_left_line(append_node(self))
-
-        return output
-
-    def left_line(self) -> List[BinaryNode]:
-        output = []
-
-        def _output():
-            output.append(self.root)
-
-        self.root.traverse_pre_order(_output())
-        return output

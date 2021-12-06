@@ -48,9 +48,9 @@ class BinaryNode:
             self.right_child.traverse_pre_order(visit)
 
     def show(self, value, level=0):
-        if self.left_child:
-            self.left_child.show(value, level + 1)
-        print(' ' * 7 * level + '(', self.value, ')', '-[')
         if self.right_child:
             self.right_child.show(value, level + 1)
+        print(' ' * 7 * level + '(', self.value, ')', '-[')
+        if self.left_child:
+            self.left_child.show(value, level + 1)
 

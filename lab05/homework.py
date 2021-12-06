@@ -1,11 +1,19 @@
 from BinaryNode import BinaryNode
 from BinaryTree import BinaryTree
-from typing import List, Callable, Any
-from lab02 import Queue
+from typing import List
 
 
 def left_line(tree: BinaryTree) -> List[BinaryNode]:
+    output = [tree.root]
 
+    node = tree.root
+    left_side_level = 0
+    while node.left_child:
+        output.append(node.left_child)
+        node = node.left_child
+        left_side_level += 1
+
+    return output
 
 
 tree = BinaryTree(10)
@@ -20,8 +28,5 @@ tree.root.left_child.add_left_child(1)
 assert tree.root.left_child.left_child.value == 1
 assert tree.root.left_child.left_child.is_leaf() is True
 
-# tree.traverse_left_line()
-# a = tree.traverse_left_line()
-
-# print(tree.left_line())
+tree.show()
 print(left_line(tree))

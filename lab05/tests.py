@@ -1,4 +1,3 @@
-from BinaryNode import BinaryNode
 from BinaryTree import BinaryTree
 
 tree = BinaryTree(10)

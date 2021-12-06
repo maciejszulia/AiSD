@@ -1,4 +1,4 @@
-from typing import Any, Callable, Optional, List
+from typing import Any, Callable, List
 from BinaryNode import BinaryNode
 
 
@@ -7,10 +7,6 @@ class BinaryTree:
 
     def __init__(self, value):
         self.root = BinaryNode(value)
-
-    def __str__(self):
-        # return str()
-        pass
 
     def traverse_in_order(self, visit: Callable[[Any], None]):
         self.root.traverse_in_order(visit)
@@ -24,5 +20,23 @@ class BinaryTree:
     def show(self):
         self.root.show(0)
 
+    def traverse_left_line(self) -> list[BinaryNode]:
+        output = []
 
+        def append_node(node):
+            return output.append(node)
 
+        append_node(self.root)
+        if self.root.left_child is not None:
+            self.traverse_left_line(append_node(self))
+
+        return output
+
+    def left_line(self) -> List[BinaryNode]:
+        output = []
+
+        def _output():
+            output.append(self.root)
+
+        self.root.traverse_pre_order(_output())
+        return output

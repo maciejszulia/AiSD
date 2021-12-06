@@ -1,6 +1,5 @@
-from typing import Any, Callable, Optional
+from typing import Any, Callable, Optional, List
 from BinaryNode import BinaryNode
-import treelib as tr
 
 
 class BinaryTree:
@@ -16,12 +15,14 @@ class BinaryTree:
     def traverse_in_order(self, visit: Callable[[Any], None]):
         self.root.traverse_in_order(visit)
 
-    def traverse_post_order(self, visit: Callable[[Any], None]) -> None:
+    def traverse_post_order(self, visit: Callable[[Any], None]):
         self.root.traverse_post_order(visit)
 
-    def traverse_pre_order(self, visit: Callable[[Any], None]) -> None:
+    def traverse_pre_order(self, visit: Callable[[Any], None]):
         self.root.traverse_pre_order(visit)
 
     def show(self):
         self.root.show(0)
+
+
 

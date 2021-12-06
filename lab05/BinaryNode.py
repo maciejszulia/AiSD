@@ -1,5 +1,4 @@
-from typing import Any, Callable
-from lab04.TreeNode import TreeNode
+from typing import Any, Callable, List
 
 
 class BinaryNode:
@@ -51,6 +50,7 @@ class BinaryNode:
     def show(self, value, level=0):
         if self.left_child:
             self.left_child.show(value, level + 1)
-        print(' ' * 3 * level + '-->', self.value)
+        print(' ' * 7 * level + '(', self.value, ')', '-[')
         if self.right_child:
             self.right_child.show(value, level + 1)
+

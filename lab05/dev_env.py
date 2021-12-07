@@ -5,39 +5,33 @@ from lab02.Queue import Queue
 
 
 def left_line(tree: BinaryTree) -> List[BinaryNode]:
-    output: List[BinaryNode] = []
-    # if tree.root is None:
-    #     return
+    output = []
+    if tree.root is None:
+        return
     queue = Queue()
     queue.enqueue(tree.root)
     while queue:
-        queue_size = len(queue)
+        size_q = len(queue)
         i = 0
-        while i < queue_size:
+        while i < size_q:
             current_node = queue.dequeue()
             i += 1
-
             if i == 1:
                 output.append(current_node.value)
             if current_node.left_child:
                 queue.enqueue(current_node.left_child)
             if current_node.right_child:
                 queue.enqueue(current_node.right_child)
-
     return output
 
 
 tree = BinaryTree(10)
 
-assert tree.root.value == 10
 tree.root.add_right_child(2)
-assert tree.root.right_child.value == 2
 tree.root.right_child.add_right_child(1)
-assert tree.root.right_child.is_leaf() is False
+
 tree.root.add_left_child(1)
 tree.root.left_child.add_left_child(1)
-assert tree.root.left_child.left_child.value == 1
-assert tree.root.left_child.left_child.is_leaf() is True
 tree.root.left_child.left_child.add_right_child(1)
 
 tree.show()

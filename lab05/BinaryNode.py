@@ -50,7 +50,6 @@ class BinaryNode:
     def show(self, value, level=0):
         if self.right_child:
             self.right_child.show(value, level + 1)
-        print(' ' * 7 * level + '(', self.value, ')', '-[')
+        print(' ' * 7 * level + '(', self.value, ')' + '-[')
         if self.left_child:
             self.left_child.show(value, level + 1)
-

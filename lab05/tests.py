@@ -15,3 +15,6 @@ tree.root.left_child.add_right_child(1)
 tree.root.right_child.add_left_child(1)
 
 tree.show()
+
+
+def left_line():

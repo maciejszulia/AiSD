@@ -5,8 +5,8 @@ from lab02.Queue import Queue
 
 
 def left_line(tree: BinaryTree) -> List[BinaryNode]:
+    # output to Lista ktora ma przechowywac binary nody
     output: List[BinaryNode] = []
-
     # zrob kolejke
     queue = Queue()
     # zakolejkuj korzeń
@@ -19,16 +19,19 @@ def left_line(tree: BinaryTree) -> List[BinaryNode]:
         i = 0
 
         # gdy dlugosc kolejki jest wieksza od i
+        # kod się wykonuje gdy w kolejce jest element
         while i < queue_size:
-            # current node = queue.zwróc pierwszy element z kolejki
+            # current node = zwróc pierwszy element z kolejki
             current_node = queue.dequeue()
             i += 1
 
             # gdy tylko jeden element w kolejce:
             if i == 1:
-                output.append(current_node.value)
+                # wrzuć do outputa
+                output.append(current_node)
             # gdy element ma dzieci:
             if current_node.left_child:
+                # zakolejkuj dziecko
                 queue.enqueue(current_node.left_child)
             # same
             if current_node.right_child:
